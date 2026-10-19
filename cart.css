@@ -1,0 +1,15 @@
+.top-cart {
+  height: 400px;
+  background-image: url("img/topcart.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.heading-big {
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 70px;
+  margin-top: 127px;
+  color: #6115d4;
+}/*# sourceMappingURL=cart.css.map */
