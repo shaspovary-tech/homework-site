@@ -1,0 +1,1340 @@
+
+@charset "UTF-8";
+
+/* ==========================================================
+   ПОДКЛЮЧЕНИЕ ДОПОЛНИТЕЛЬНЫХ СТИЛЕЙ
+   ========================================================== */
+
+@import 'vars';
+@import 'cart';
+
+$color-text: #ffffff;
+
+/* ==========================================================
+   01. БАЗОВЫЕ СТИЛИ И КОНТЕЙНЕРЫ
+   ========================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat", "Arial", sans-serif;
+}
+
+.center {
+  padding-left: max(0px, calc(50% - 600px));
+  padding-right: max(0px, calc(50% - 600px));
+  box-sizing: border-box;
+}
+
+input,
+button,
+a {
+  font-family: "Montserrat", "Arial", sans-serif;
+}
+
+.page {
+  padding: 0;
+}
+
+/* ==========================================================
+   02. ПЕРВЫЙ ЭКРАН / TOP
+   ========================================================== */
+
+.top {
+  height: 735px;
+  background-image: url("img/Rectangle 15.jpg");
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
+}
+
+.menu-mobil {
+  display: none;
+}
+
+/* ==========================================================
+   03. ШАПКА САЙТА / HEADER
+   ========================================================== */
+
+.header {
+  width: 100%;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  box-sizing: border-box;
+}
+
+/* Логотип */
+
+.header__logo {
+  width: 198px;
+  height: auto;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Список навигации */
+
+.header__list {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ссылки навигации */
+
+.header__link {
+  display: inline-block;
+  height: 20px;
+  color: $color-text;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-decoration: none;
+  transform-origin: left center;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+
+  &:hover {
+    color: #c4c4c4;
+    transform: scale(1.1);
+  }
+}
+
+/* Поле поиска */
+
+.header__search {
+  width: 288px;
+  height: 41px;
+  padding-left: 20px;
+  color: $color-text;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.header__search::-moz-placeholder {
+  color: $color-text;
+}
+
+.header__search::placeholder {
+  color: $color-text;
+}
+
+/* ==========================================================
+   04. ГЛАВНЫЙ ЭКРАН / HERO
+   ========================================================== */
+
+.hero {
+  width: 100%;
+  padding-top: 64px;
+}
+
+/* Главный заголовок */
+
+.hero__title {
+  width: 792px;
+  max-width: 100%;
+  margin-bottom: 16px;
+  color: $color-text;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 70px;
+}
+
+/* Описание */
+
+.hero__text {
+  width: 792px;
+  max-width: 100%;
+  min-height: 29px;
+  margin-bottom: 16px;
+  color: $color-text;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+/* Ссылка "Перейти в каталог" */
+
+.hero__link {
+  display: inline-block;
+  color: $color-text;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  text-decoration: underline;
+  transform-origin: left center;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+
+  &:hover {
+    color: #c4c4c4;
+    transform: scale(1.1);
+  }
+}
+
+/* ==========================================================
+   05. КАТЕГОРИИ МЕБЕЛИ / FURNITURE
+   ========================================================== */
+
+.furniture {
+  padding-top: 64px;
+}
+
+/* Заголовок раздела */
+
+.furniture__title {
+  margin-top: 0;
+  margin-bottom: 32px;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 59px;
+}
+
+/* Сетка категорий */
+
+.furniture__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 32px;
+}
+
+/* Общий стиль карточек */
+
+.furniture__item {
+  height: 415px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: 600;
+}
+
+/* Первая строка — две большие карточки */
+
+.furniture__item:nth-child(1),
+.furniture__item:nth-child(2) {
+  grid-column: span 3;
+}
+
+/* Вторая строка — три карточки */
+
+.furniture__item:nth-child(3),
+.furniture__item:nth-child(4),
+.furniture__item:nth-child(5) {
+  grid-column: span 2;
+}
+
+/* Отдых */
+
+.furniture__item_rest {
+  background-image: url("img/Rectangle 17.png");
+}
+
+/* Работа */
+
+.furniture__item_work {
+  background-image: url("img/Rectangle 18.png");
+  align-items: flex-start;
+  padding-top: 166px;
+  box-sizing: border-box;
+}
+
+/* Кухня */
+
+.furniture__item_kitchen {
+  background-image: url("img/Rectangle 19.png");
+}
+
+/* Детская */
+
+.furniture__item_kids {
+  background-image: url("img/Rectangle 20.png");
+}
+
+/* Ванная */
+
+.furniture__item_bathroom {
+  background-image: url("img/Rectangle 21.png");
+}
+
+/* ==========================================================
+   06. СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ
+   ========================================================== */
+
+.special-offer {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 64px;
+  padding-bottom: 64px;
+  box-sizing: border-box;
+}
+
+/* Заголовок раздела */
+
+.special-offer__title {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 32px;
+  font-size: 48px;
+  line-height: 59px;
+  font-weight: 600;
+  color: #000000;
+}
+
+/* Сетка товаров */
+
+.special-offer__content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+/* Карточка */
+
+.special-offer__card {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Изображение товара */
+
+.special-offer__image {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Название товара */
+
+.special-offer__product-title {
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+}
+
+/* Описание */
+
+.special-offer__description {
+  min-height: 37px;
+  margin-bottom: 12px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  color: #888888;
+}
+
+/* Контейнер цен */
+
+.special-offer__prices {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-top: auto;
+}
+
+/* Общие параметры цен */
+
+.special-offer__price-new,
+.special-offer__price-old {
+  margin: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 500;
+}
+
+/* Новая цена */
+
+.special-offer__price-new {
+  color: #050505;
+}
+
+/* Старая цена */
+
+.special-offer__price-old {
+  color: #888888;
+  text-decoration-line: line-through;
+}
+
+/* ==========================================================
+   07. КАТАЛОГ ТОВАРОВ
+   ========================================================== */
+
+.catalog {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 12px;
+  padding-bottom: 4px;
+  box-sizing: border-box;
+}
+
+/* Заголовок каталога */
+
+.catalog__title {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 18px;
+  font-size: 48px;
+  line-height: 59px;
+  font-weight: 600;
+}
+
+/* Заголовок на отдельной странице каталога */
+
+.catalog-hero__title {
+  margin: 0;
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 70px;
+  color: #ffffff;
+}
+
+.catalog-hero {
+  display: flex;
+  align-items: center;
+}
+
+/* ==========================================================
+   07.1. СЕТКА КАТАЛОГА
+   ========================================================== */
+
+.catalog__content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  box-sizing: border-box;
+}
+
+/* Карточка товара */
+
+.catalog__card {
+  width: 100%;
+  height: 406px;
+  margin: 0;
+  position: relative;
+  padding-top: 19px;
+  padding-bottom: 15px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: 250px auto 1fr auto;
+  min-width: 0;
+  cursor: pointer;
+}
+
+/* Кнопки внутри карточки */
+
+.catalog__card-actions {
+  position: absolute;
+  top: 29px;
+  right: 10px;
+  z-index: 2;
+  display: flex;
+  gap: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.catalog__card:hover .catalog__card-actions,
+.catalog__card:focus-within .catalog__card-actions {
+  opacity: 1;
+  visibility: visible;
+}
+
+.catalog__card-button {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.catalog__card-button img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+/* Изображение */
+
+.catalog__image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Название товара */
+
+.catalog__product-title {
+  margin-top: 10px;
+  margin-bottom: 8px;
+  font-size: 24px;
+  line-height: 31px;
+  font-weight: 500;
+}
+
+/* Описание */
+
+.catalog__description {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 400;
+  color: #888888;
+}
+
+/* Цена */
+
+.catalog__price {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #050505;
+}
+
+/* Ссылка под каталогом */
+
+.catalog__link-box {
+  width: 100%;
+  max-width: 1200px;
+  margin: 31px auto 64px;
+  box-sizing: border-box;
+}
+
+.catalog__link {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+  text-decoration: none;
+  transform-origin: left center;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+
+  &:hover {
+    color: #808080;
+    transform: scale(1.1);
+  }
+}
+
+/* ==========================================================
+   07.2. ВЕРХНЯЯ ЧАСТЬ СТРАНИЦЫ КАТАЛОГА
+   ========================================================== */
+
+.catalog-top {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 400px;
+  background-image: url("img/Rectangle 29.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: top center;
+}
+
+.catalog-top + .catalog {
+  padding-top: 0;
+  padding-bottom: 35px;
+}
+
+/* ==========================================================
+   07.3. ФИЛЬТРЫ И СОРТИРОВКА
+   ========================================================== */
+
+.catalog__controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 182px 220px;
+  align-items: center;
+  column-gap: 10px;
+  width: 100%;
+  margin-top: 70px;
+  margin-bottom: 32px;
+}
+
+/* Карточки отдельной страницы каталога */
+
+.catalog__list .catalog__card {
+  padding-top: 0;
+  height: auto;
+  grid-template-rows: 250px auto 1fr auto;
+  align-content: start;
+}
+
+/* Общие стили кнопок фильтра и сортировки */
+
+.catalog__filter-button,
+.catalog__sort {
+  font-family: "Montserrat", "Arial", sans-serif;
+  width: 100%;
+  height: 40px;
+  padding: 0 16px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  border: 1px solid #c4c4c4;
+  border-radius: 20px;
+  background-color: transparent;
+  box-sizing: border-box;
+  appearance: none;
+  background-image: url("img/arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 20px 11px;
+
+  &:focus,
+  &:active {
+    border-color: #000000;
+    outline: 2px solid #000000;
+    outline-offset: -2px;
+  }
+}
+
+/* Открытый фильтр */
+
+.catalog__filter-details[open] .catalog__filter-button {
+  border-color: #000000;
+  outline: 2px solid #000000;
+  outline-offset: -2px;
+}
+
+/* Кнопка фильтрации */
+
+.catalog__filter-button {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.catalog__filter-button::marker {
+  content: "";
+}
+
+.catalog__filter-button::-webkit-details-marker {
+  display: none;
+}
+
+/* Контейнер фильтра */
+
+.catalog__filter {
+  position: relative;
+}
+
+/* Выпадающая форма фильтра */
+
+.catalog__filter-form {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  z-index: 10;
+  width: 526px;
+  min-height: 548px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff;
+  box-shadow: 0 4px 67px -12px rgba(0, 0, 0, 0.32);
+  box-sizing: border-box;
+}
+
+/* Содержимое фильтра */
+
+.catalog__filter-content {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  column-gap: 65px;
+  row-gap: 32px;
+  align-items: start;
+}
+
+.catalog__room-label {
+  white-space: nowrap;
+}
+
+/* Группы фильтров */
+
+.catalog__fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.catalog__fieldset:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.catalog__fieldset:nth-child(2) {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.catalog__fieldset:nth-child(3) {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.catalog__fieldset:nth-child(4) {
+  grid-column: 2;
+  grid-row: 1 / 4;
+}
+
+/* ==========================================================
+   07.4. ФИЛЬТР ПО ЦЕНЕ
+   ========================================================== */
+
+.catalog__range {
+  position: relative;
+  width: 190px;
+  height: 10px;
+  margin-top: 8px;
+}
+
+.catalog__range::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #000000;
+}
+
+.catalog__legend {
+  margin-bottom: 14px;
+  font-family: "Montserrat", "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #050505;
+}
+
+/* Подписи фильтров */
+
+.catalog__radio-label,
+.catalog__room-label {
+  font-family: "Montserrat", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  color: #000000;
+}
+
+/* Радиокнопки */
+
+.catalog__radio-input,
+.catalog__room-input {
+  flex: 0 0 15px;
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  box-sizing: border-box;
+  accent-color: #000000;
+}
+
+.catalog__fieldset:first-child .catalog__legend {
+  margin-bottom: 14px;
+}
+
+.catalog__radio {
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+}
+
+.catalog__radio:not(:last-child) {
+  margin-bottom: 14px;
+}
+
+.catalog__radio-input {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.catalog__fieldset:nth-child(4) .catalog__legend {
+  margin-bottom: 14px;
+}
+
+/* Выбор комнаты */
+
+.catalog__room {
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+}
+
+.catalog__room:not(:last-child) {
+  margin-bottom: 14px;
+}
+
+.catalog__room-input {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+/* ==========================================================
+   07.5. ПОЛЗУНОК ДИАПАЗОНА ЦЕН
+   ========================================================== */
+
+.catalog__range-input {
+  appearance: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  margin: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+.catalog__range-input::-webkit-slider-runnable-track {
+  height: 1px;
+  background: transparent;
+}
+
+.catalog__range-input::-webkit-slider-thumb {
+  appearance: none;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  border: none;
+  border-radius: 50%;
+  background-color: #000000;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.catalog__range-input::-moz-range-track {
+  height: 1px;
+  background: transparent;
+}
+
+.catalog__range-input::-moz-range-thumb {
+  width: 8px;
+  height: 8px;
+  border: none;
+  border-radius: 50%;
+  background-color: #000000;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* ==========================================================
+   07.6. ФИЛЬТР ПО ЦВЕТУ
+   ========================================================== */
+
+.catalog__fieldset--color .catalog__legend {
+  margin-bottom: 14px;
+}
+
+.catalog__colors {
+  display: grid;
+  grid-template-columns: repeat(7, 15px);
+  column-gap: 7px;
+  row-gap: 14px;
+}
+
+.catalog__color-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.catalog__color {
+  position: relative;
+  display: block;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #888888;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+/* Галочка выбранного цвета */
+
+.catalog__color-input:checked + .catalog__color::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 4px;
+  width: 4px;
+  height: 7px;
+  border-right: 1px solid #050505;
+  border-bottom: 1px solid #050505;
+  transform: rotate(45deg);
+}
+
+.catalog__color-input:checked + .catalog__color--black::after {
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+.catalog__color-input:focus-visible + .catalog__color {
+  outline: 2px solid #050505;
+  outline-offset: 2px;
+}
+
+/* Палитра цветов */
+
+.catalog__color--white {
+  background-color: #ffffff;
+}
+
+.catalog__color--black {
+  background-color: #050505;
+}
+
+.catalog__color--gray {
+  background-color: #888888;
+}
+
+.catalog__color--red {
+  background-color: #f04a4a;
+}
+
+.catalog__color--orange {
+  background-color: #f2994a;
+}
+
+.catalog__color--yellow {
+  background-color: #f2c94c;
+}
+
+.catalog__color--green {
+  background-color: #27ae60;
+}
+
+.catalog__color--turquoise {
+  background-color: #2dccc4;
+}
+
+.catalog__color--blue {
+  background-color: #2d9cdb;
+}
+
+.catalog__color--dark-blue {
+  background-color: #2f80ed;
+}
+
+.catalog__color--purple {
+  background-color: #9b51e0;
+}
+
+.catalog__color--violet {
+  background-color: #bb6bd9;
+}
+
+.catalog__color--lavender {
+  background-color: #d6a6d8;
+}
+
+.catalog__color--pink {
+  background-color: #f2a7cb;
+}
+
+/* Кнопка применения фильтра */
+
+.catalog__apply-button {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 190px;
+  height: 40px;
+  padding: 0;
+  font-family: "Montserrat", "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 100%;
+  color: #000000;
+  background-color: transparent;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  &:hover {
+    background-color: #000000;
+    color: #ffffff;
+  }
+}
+
+/* ==========================================================
+   07.7. ДОПОЛНИТЕЛЬНЫЕ ТОВАРЫ
+   ========================================================== */
+
+.catalog__more {
+  margin-top: 32px;
+  margin-bottom: 0;
+}
+
+.catalog__more-button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font-family: "Montserrat", "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #000000;
+  text-decoration: underline;
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    opacity: 0.7;
+  }
+}
+
+.catalog__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 378px));
+  column-gap: 32px;
+  row-gap: 32px;
+}
+
+.catalog__breadcrumbs {
+  white-space: nowrap;
+}
+
+/* ==========================================================
+   08. ПОДВАЛ САЙТА / FOOTER
+   ========================================================== */
+
+.footer {
+  width: 100%;
+  margin: auto 0;
+  padding-top: 13px;
+  box-sizing: border-box;
+  background-color: #f7f6f6;
+}
+
+/* Основная сетка Footer */
+
+.footer__inner {
+  display: grid;
+  grid-template-columns: 198px minmax(0, 1fr);
+  column-gap: 212px;
+  align-items: flex-start;
+}
+
+/* Правая часть подвала */
+
+.footer__content {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Логотип Footer */
+
+.footer__column--logo {
+  width: 198px;
+  height: 130px;
+  margin-right: 0;
+  padding-top: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.footer__logo {
+  width: 198px;
+  height: 44px;
+  display: block;
+}
+
+/* Общие заголовки */
+
+.footer__title {
+  margin: 0 0 16px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+}
+
+/* ==========================================================
+   08.1. МЕНЮ FOOTER
+   ========================================================== */
+
+.footer__column--menu {
+  flex: 0 0 104px;
+  width: 104px;
+  height: 155px;
+  padding-top: 0;
+  padding-left: 0;
+  box-sizing: border-box;
+}
+
+.footer__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer__item {
+  margin-bottom: 4px;
+}
+
+.footer__link {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 17px;
+  color: #888888;
+  text-decoration: none;
+  transform-origin: left center;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+
+  &:hover {
+    color: #000000;
+    transform: scale(1.1);
+  }
+}
+
+/* ==========================================================
+   08.2. КОНТАКТЫ FOOTER
+   ========================================================== */
+
+.footer__column--contacts {
+  flex: 0 0 137px;
+  width: 137px;
+  height: 158px;
+  padding-top: 0;
+  padding-right: 10px;
+  padding-left: 0;
+  box-sizing: border-box;
+  position: relative;
+  left: 16px;
+}
+
+.footer__contact {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #888888;
+  text-decoration: none;
+  transform-origin: left center;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+
+  &:hover {
+    color: #000000;
+    transform: scale(1.05);
+  }
+}
+
+/* Социальные сети */
+
+.footer__socials {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.footer__social-link,
+.footer__social-linc {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 0;
+  text-decoration: none;
+}
+
+.footer__social-icon {
+  display: block;
+  width: 24px;
+  height: 14px;
+  cursor: pointer;
+  transform: scale(1);
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+
+  &:hover {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+}
+
+.footer__info {
+  width: 182px;
+  height: 87px;
+}
+
+/* ==========================================================
+   08.3. ФОРМА ПОДПИСКИ
+   ========================================================== */
+
+.footer__column--form {
+  flex: 0 0 380px;
+  width: 380px;
+  height: 175px;
+  padding-top: 17px;
+  padding-right: 9px;
+  padding-bottom: 47px;
+  padding-left: 111px;
+  box-sizing: border-box;
+}
+
+.footer__form {
+  width: 260px;
+  height: 111px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Текст над формой */
+
+.footer__form-text {
+  width: 251px;
+  margin: 0 0 4px;
+  font-size: 12px;
+  line-height: 100%;
+  font-weight: 400;
+  color: #000000;
+}
+
+/* Поле email */
+
+.footer__email {
+  width: 260px;
+  height: 40px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border: 1px solid #c4c4c4;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  font-size: 12px;
+  line-height: 100%;
+}
+
+.footer__email::-moz-placeholder {
+  color: #c4c4c4;
+}
+
+.footer__email::placeholder {
+  color: #c4c4c4;
+}
+
+/* Кнопка подписки */
+
+.footer__button {
+  width: 260px;
+  height: 40px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 16px;
+  background-color: rgb(222 215 215 / 41%);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  line-height: 100%;
+  font-weight: 400;
+  color: #000000;
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+/* ==========================================================
+   09. АДАПТИВНЫЕ СТИЛИ
+   ========================================================== */
+
+@import 'tablet';
+@import 'mobile';

@@ -1,0 +1,140 @@
+@media (max-width: 1024px) {
+    .center {
+        padding-left: calc(50% - 393px);
+        padding-right: calc(50% - 393px);
+    }
+
+    .furniture {
+        &__item {
+            height: 268px;
+        }
+    }
+
+    .special-offer + .footer{
+        margin-top: 4px;
+    }
+
+    .special-offer__content {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 29px;
+        row-gap: 30px;
+    }
+
+    .special-offer__card{
+        width: 100%;
+    }
+
+    .catalog__content{
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 29px;
+        row-gap: 30px;
+    }
+
+    .catalog__card{
+        width: 100%;
+    }
+
+    .catalog__image{
+        width: 100%;
+    }
+
+    .catalog{
+        padding-bottom: 35px;
+    }
+
+    .catalog__link-box{
+        margin-bottom: 0;
+    }
+
+    .footer__column--logo {
+        display: none;
+    }
+
+    .catalog__controls,
+.catalog__list {
+  width: calc(100% - 48px);
+  max-width: 786px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+
+
+.catalog__list{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20px;
+    row-gap: 30px;
+}
+
+.catalog__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 29px;
+  row-gap: 39px;
+}
+
+.catalog__card,
+.catalog__image {
+  width: 100%;
+}
+
+.cart {
+  grid-template-columns: minmax(0, 1fr);
+  justify-content: start;
+  row-gap: 64px;
+}
+
+.cart__content,
+.cart__form {
+  grid-column: 1 / -1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cart__form {
+  width: 378px;
+  max-width: 100%;
+  margin-top: 0;
+  height: 556px;
+min-height: 556px;
+box-sizing: border-box;
+}
+
+.cart__actions{
+    margin-top: 0;
+}
+}
+
+@media (min-width: 768px) and (max-width: 834px) {
+    .center {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .product {
+        width: 345px;
+    }
+
+   .catalog__controls {
+    position: relative;
+}
+
+.catalog__filter,
+.catalog__filter-details {
+    position: static;
+}
+
+.catalog__filter-details[open] .catalog__filter-form {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    left: auto;
+    margin-left: 0;
+    transform: none;
+    z-index: 20;
+}
+}

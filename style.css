@@ -1,4 +1,7 @@
 @charset "UTF-8";
+/* ==========================================================
+   ПОДКЛЮЧЕНИЕ ДОПОЛНИТЕЛЬНЫХ СТИЛЕЙ
+   ========================================================== */
 .top-cart {
   height: 400px;
   background-image: url("img/topcart.jpg");
@@ -216,41 +219,43 @@
   opacity: 0.7;
 }
 
-/* =========================================================
-   1. ОБЩИЕ НАСТРОЙКИ СТРАНИЦЫ
-   ========================================================= */
-/* Сбрасываем стандартные внешние и внутренние отступы браузера */
+/* ==========================================================
+   01. БАЗОВЫЕ СТИЛИ И КОНТЕЙНЕРЫ
+   ========================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 * {
   margin: 0;
   padding: 0;
 }
 
-/* Основной шрифт всей страницы */
 body {
   font-family: "Montserrat", "Arial", sans-serif;
 }
 
 .center {
-  padding-left: calc(50% - 600px);
-  padding-right: calc(50% - 600px);
+  padding-left: max(0px, 50% - 600px);
+  padding-right: max(0px, 50% - 600px);
   box-sizing: border-box;
 }
 
-/* Наследуем основной шрифт для элементов формы и ссылок */
 input,
 button,
 a {
   font-family: "Montserrat", "Arial", sans-serif;
 }
 
-/* Основной контейнер страницы */
 .page {
   padding: 0;
 }
 
-/* =========================================================
-   2. ВЕРХНЯЯ ЧАСТЬ САЙТА — TOP
-   ========================================================= */
+/* ==========================================================
+   02. ПЕРВЫЙ ЭКРАН / TOP
+   ========================================================== */
 .top {
   height: 735px;
   background-image: url("img/Rectangle 15.jpg");
@@ -263,9 +268,9 @@ a {
   display: none;
 }
 
-/* =========================================================
-   3. ШАПКА САЙТА — HEADER
-   ========================================================= */
+/* ==========================================================
+   03. ШАПКА САЙТА / HEADER
+   ========================================================== */
 .header {
   width: 100%;
   height: 76px;
@@ -276,30 +281,33 @@ a {
   box-sizing: border-box;
 }
 
-/* Список меню */
+/* Логотип */
+.header__logo {
+  width: 198px;
+  height: auto;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Список навигации */
 .header__list {
   display: flex;
   gap: 32px;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* Ссылки меню */
+/* Ссылки навигации */
 .header__link {
-  width: 72px;
-  height: 20px;
-  color: #ffffff;
-  font-size: 16px;
-  /* Убираем подчеркивание ссылок меню */
-  text-decoration: none;
-}
-
-.header__link {
-  width: 72px;
-  height: 20px;
   display: inline-block;
+  height: 20px;
   color: #ffffff;
   font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
   text-decoration: none;
+  transform-origin: left center;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 .header__link:hover {
@@ -309,17 +317,16 @@ a {
 
 /* Поле поиска */
 .header__search {
-  width: 250px;
-  height: 40px;
+  width: 288px;
+  height: 41px;
   padding-left: 20px;
   color: #ffffff;
   background-color: transparent;
-  border: 1px solid white;
+  border: 1px solid #ffffff;
   border-radius: 20px;
   box-sizing: border-box;
 }
 
-/* Текст-подсказка внутри поиска */
 .header__search::-moz-placeholder {
   color: #ffffff;
 }
@@ -328,9 +335,9 @@ a {
   color: #ffffff;
 }
 
-/* =========================================================
-   4. ГЛАВНЫЙ ЭКРАН — HERO
-   ========================================================= */
+/* ==========================================================
+   04. ГЛАВНЫЙ ЭКРАН / HERO
+   ========================================================== */
 .hero {
   width: 100%;
   padding-top: 64px;
@@ -338,31 +345,35 @@ a {
 
 /* Главный заголовок */
 .hero__title {
-  width: auto; /*792px*/
+  width: 792px;
+  max-width: 100%;
   margin-bottom: 16px;
   color: #ffffff;
   font-family: "Montserrat", Arial, sans-serif;
   font-weight: 600;
   font-size: 64px;
   line-height: 70px;
-  max-width: 792px;
 }
 
-/* Текст под главным заголовком */
+/* Описание */
 .hero__text {
+  width: 792px;
+  max-width: 100%;
+  min-height: 29px;
   margin-bottom: 16px;
   color: #ffffff;
   font-size: 24px;
-  line-height: 32px;
+  font-weight: 400;
+  line-height: 100%;
 }
 
 /* Ссылка "Перейти в каталог" */
 .hero__link {
   display: inline-block;
   color: #ffffff;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   text-decoration: underline;
   transform-origin: left center;
   transition: transform 0.3s ease, color 0.3s ease;
@@ -372,21 +383,30 @@ a {
   transform: scale(1.1);
 }
 
-/*МЕБЕЛЬ ДЛЯ*/
+/* ==========================================================
+   05. КАТЕГОРИИ МЕБЕЛИ / FURNITURE
+   ========================================================== */
+.furniture {
+  padding-top: 64px;
+}
+
+/* Заголовок раздела */
 .furniture__title {
-  margin-top: 64px;
+  margin-top: 0;
   margin-bottom: 32px;
   font-size: 48px;
   font-weight: 600;
-  line-height: 100%;
+  line-height: 59px;
 }
 
+/* Сетка категорий */
 .furniture__grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 32px;
 }
 
+/* Общий стиль карточек */
 .furniture__item {
   height: 415px;
   background-repeat: no-repeat;
@@ -396,45 +416,152 @@ a {
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 34px;
   font-weight: 600;
 }
 
+/* Первая строка — две большие карточки */
 .furniture__item:nth-child(1),
 .furniture__item:nth-child(2) {
   grid-column: span 3;
 }
 
+/* Вторая строка — три карточки */
 .furniture__item:nth-child(3),
 .furniture__item:nth-child(4),
 .furniture__item:nth-child(5) {
   grid-column: span 2;
 }
 
+/* Отдых */
 .furniture__item_rest {
   background-image: url("img/Rectangle 17.png");
 }
 
+/* Работа */
 .furniture__item_work {
   background-image: url("img/Rectangle 18.png");
+  align-items: flex-start;
+  padding-top: 166px;
+  box-sizing: border-box;
 }
 
+/* Кухня */
 .furniture__item_kitchen {
   background-image: url("img/Rectangle 19.png");
 }
 
+/* Детская */
 .furniture__item_kids {
   background-image: url("img/Rectangle 20.png");
 }
 
+/* Ванная */
 .furniture__item_bathroom {
   background-image: url("img/Rectangle 21.png");
 }
 
-/* =========================================================
-   5. КАТАЛОГ
-   ========================================================= */
+/* ==========================================================
+   06. СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ
+   ========================================================== */
+.special-offer {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 64px;
+  padding-bottom: 64px;
+  box-sizing: border-box;
+}
+
+/* Заголовок раздела */
+.special-offer__title {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 32px;
+  font-size: 48px;
+  line-height: 59px;
+  font-weight: 600;
+  color: #000000;
+}
+
+/* Сетка товаров */
+.special-offer__content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+/* Карточка */
+.special-offer__card {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Изображение товара */
+.special-offer__image {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Название товара */
+.special-offer__product-title {
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+}
+
+/* Описание */
+.special-offer__description {
+  min-height: 37px;
+  margin-bottom: 12px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  color: #888888;
+}
+
+/* Контейнер цен */
+.special-offer__prices {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-top: auto;
+}
+
+/* Общие параметры цен */
+.special-offer__price-new,
+.special-offer__price-old {
+  margin: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 500;
+}
+
+/* Новая цена */
+.special-offer__price-new {
+  color: #050505;
+}
+
+/* Старая цена */
+.special-offer__price-old {
+  color: #888888;
+  text-decoration-line: line-through;
+}
+
+/* ==========================================================
+   07. КАТАЛОГ ТОВАРОВ
+   ========================================================== */
 .catalog {
   width: 100%;
   max-width: 1200px;
@@ -447,19 +574,20 @@ a {
 /* Заголовок каталога */
 .catalog__title {
   width: 100%;
-  max-width: 1208px;
+  max-width: 1200px;
   margin: 0 auto 18px;
   font-size: 48px;
   line-height: 59px;
   font-weight: 600;
 }
 
+/* Заголовок на отдельной странице каталога */
 .catalog-hero__title {
   margin: 0;
   font-size: 64px;
   font-weight: 600;
   line-height: 70px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .catalog-hero {
@@ -467,7 +595,9 @@ a {
   align-items: center;
 }
 
-/* Контейнер с карточками каталога */
+/* ==========================================================
+   07.1. СЕТКА КАТАЛОГА
+   ========================================================== */
 .catalog__content {
   width: 100%;
   max-width: 1200px;
@@ -493,6 +623,7 @@ a {
   cursor: pointer;
 }
 
+/* Кнопки внутри карточки */
 .catalog__card-actions {
   position: absolute;
   top: 29px;
@@ -505,7 +636,8 @@ a {
   transition: opacity 0.3s ease;
 }
 
-.catalog__card:hover .catalog__card-actions {
+.catalog__card:hover .catalog__card-actions,
+.catalog__card:focus-within .catalog__card-actions {
   opacity: 1;
   visibility: visible;
 }
@@ -530,7 +662,7 @@ a {
   filter: brightness(0) invert(1);
 }
 
-/* Изображение товара */
+/* Изображение */
 .catalog__image {
   width: 100%;
   height: 250px;
@@ -544,11 +676,11 @@ a {
   margin-top: 10px;
   margin-bottom: 8px;
   font-size: 24px;
-  line-height: 29px;
+  line-height: 31px;
   font-weight: 500;
 }
 
-/* Описание товара */
+/* Описание */
 .catalog__description {
   margin-top: 0;
   margin-bottom: 12px;
@@ -559,7 +691,7 @@ a {
   color: #888888;
 }
 
-/* Цена товара */
+/* Цена */
 .catalog__price {
   margin-top: 0;
   margin-bottom: 0;
@@ -570,7 +702,7 @@ a {
   color: #050505;
 }
 
-/* Блок со ссылкой под каталогом */
+/* Ссылка под каталогом */
 .catalog__link-box {
   width: 100%;
   max-width: 1200px;
@@ -578,7 +710,6 @@ a {
   box-sizing: border-box;
 }
 
-/* Ссылка внутри блока */
 .catalog__link {
   display: inline-block;
   font-size: 16px;
@@ -593,6 +724,9 @@ a {
   transform: scale(1.1);
 }
 
+/* ==========================================================
+   07.2. ВЕРХНЯЯ ЧАСТЬ СТРАНИЦЫ КАТАЛОГА
+   ========================================================== */
 .catalog-top {
   display: grid;
   grid-template-rows: auto 1fr;
@@ -608,15 +742,21 @@ a {
   padding-bottom: 35px;
 }
 
+/* ==========================================================
+   07.3. ФИЛЬТРЫ И СОРТИРОВКА
+   ========================================================== */
 .catalog__controls {
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: minmax(0, 1fr) 182px 220px;
   align-items: center;
-  gap: 10px;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  width: 100%;
   margin-top: 70px;
-  margin-bottom: 49px;
+  margin-bottom: 32px;
 }
 
+/* Карточки отдельной страницы каталога */
 .catalog__list .catalog__card {
   padding-top: 0;
   height: auto;
@@ -624,16 +764,17 @@ a {
   align-content: start;
 }
 
+/* Общие стили кнопок фильтра и сортировки */
 .catalog__filter-button,
 .catalog__sort {
-  font-family: "Montserat", "Arial", sans-serif;
+  font-family: "Montserrat", "Arial", sans-serif;
   width: 100%;
   height: 40px;
   padding: 0 16px;
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
-  border: 1px solid #C4C4C4;
+  border: 1px solid #c4c4c4;
   border-radius: 20px;
   background-color: transparent;
   box-sizing: border-box;
@@ -645,7 +786,6 @@ a {
   background-position: right 16px center;
   background-size: 20px 11px;
 }
-
 .catalog__filter-button:focus, .catalog__filter-button:active,
 .catalog__sort:focus,
 .catalog__sort:active {
@@ -654,12 +794,14 @@ a {
   outline-offset: -2px;
 }
 
+/* Открытый фильтр */
 .catalog__filter-details[open] .catalog__filter-button {
   border-color: #000000;
   outline: 2px solid #000000;
   outline-offset: -2px;
 }
 
+/* Кнопка фильтрации */
 .catalog__filter-button {
   display: flex;
   align-items: center;
@@ -674,21 +816,12 @@ a {
   display: none;
 }
 
-.catalog__controls {
-  display: grid;
-  grid-template-columns: 1fr 182px 220px;
-  align-items: center;
-  -moz-column-gap: 10px;
-       column-gap: 10px;
-  width: 100%;
-  margin-top: 70px;
-  margin-bottom: 32px;
-}
-
+/* Контейнер фильтра */
 .catalog__filter {
   position: relative;
 }
 
+/* Выпадающая форма фильтра */
 .catalog__filter-form {
   position: absolute;
   top: 50px;
@@ -705,6 +838,7 @@ a {
   box-sizing: border-box;
 }
 
+/* Содержимое фильтра */
 .catalog__filter-content {
   display: grid;
   grid-template-columns: 1fr max-content;
@@ -718,6 +852,7 @@ a {
   white-space: nowrap;
 }
 
+/* Группы фильтров */
 .catalog__fieldset {
   min-width: 0;
   margin: 0;
@@ -745,6 +880,9 @@ a {
   grid-row: 1/4;
 }
 
+/* ==========================================================
+   07.4. ФИЛЬТР ПО ЦЕНЕ
+   ========================================================== */
 .catalog__range {
   position: relative;
   width: 190px;
@@ -771,6 +909,7 @@ a {
   color: #050505;
 }
 
+/* Подписи фильтров */
 .catalog__radio-label,
 .catalog__room-label {
   font-family: "Montserrat", "Arial", sans-serif;
@@ -780,6 +919,7 @@ a {
   color: #000000;
 }
 
+/* Радиокнопки */
 .catalog__radio-input,
 .catalog__room-input {
   flex: 0 0 15px;
@@ -814,6 +954,7 @@ a {
   margin-bottom: 14px;
 }
 
+/* Выбор комнаты */
 .catalog__room {
   display: flex;
   align-items: center;
@@ -830,6 +971,9 @@ a {
   margin: 0;
 }
 
+/* ==========================================================
+   07.5. ПОЛЗУНОК ДИАПАЗОНА ЦЕН
+   ========================================================== */
 .catalog__range-input {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -877,6 +1021,9 @@ a {
   cursor: pointer;
 }
 
+/* ==========================================================
+   07.6. ФИЛЬТР ПО ЦВЕТУ
+   ========================================================== */
 .catalog__fieldset--color .catalog__legend {
   margin-bottom: 14px;
 }
@@ -920,17 +1067,16 @@ a {
 }
 
 .catalog__color-input:checked + .catalog__color--black::after {
-  border-right-color: #fff;
-  border-bottom-color: #fff;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
 }
 
-/* Рамка при выборе клавиатурой */
 .catalog__color-input:focus-visible + .catalog__color {
   outline: 2px solid #050505;
   outline-offset: 2px;
 }
 
-/* Цвета */
+/* Палитра цветов */
 .catalog__color--white {
   background-color: #ffffff;
 }
@@ -987,6 +1133,7 @@ a {
   background-color: #f2a7cb;
 }
 
+/* Кнопка применения фильтра */
 .catalog__apply-button {
   align-self: flex-end;
   display: flex;
@@ -1012,6 +1159,9 @@ a {
   color: #ffffff;
 }
 
+/* ==========================================================
+   07.7. ДОПОЛНИТЕЛЬНЫЕ ТОВАРЫ
+   ========================================================== */
 .catalog__more {
   margin-top: 32px;
   margin-bottom: 0;
@@ -1047,144 +1197,55 @@ a {
   white-space: nowrap;
 }
 
-/* =========================================================
-   6. СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ
-   ========================================================= */
-.special-offer {
-  width: 100%;
-  margin: 0 auto;
-  padding-top: 64px;
-  padding-bottom: 64px;
-  box-sizing: border-box;
-}
-
-/* Заголовок специальных предложений */
-.special-offer__title {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto 32px;
-  font-size: 48px;
-  line-height: 59px;
-  font-weight: 600;
-  color: #000000;
-}
-
-/* Контейнер карточек специальных предложений */
-.special-offer__content {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 32px;
-}
-
-/* Карточка специального предложения */
-.special-offer__card {
-  width: 100%;
-  min-width: 0;
-}
-
-/* Изображение специального предложения */
-.special-offer__image {
-  width: 100%;
-  display: block;
-  margin-bottom: 8px;
-}
-
-/* Название товара */
-.special-offer__product-title {
-  margin-bottom: 8px;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 29px;
-  color: #000000;
-}
-
-/* Описание */
-.special-offer__description {
-  margin-bottom: 12px;
-  font-size: 14px;
-  line-height: 17px;
-  color: #888888;
-}
-
-/* Новая цена */
-.special-offer__price-new {
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 29px;
-  color: #050505;
-}
-
-/* Старая зачеркнутая цена */
-.special-offer__price-old {
-  color: #888888;
-  text-decoration-line: line-through;
-}
-
-.special-offer__prices {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  margin-top: 12px;
-}
-
-.special-offer__price-new,
-.special-offer__price-old {
-  margin: 0;
-  white-space: nowrap;
-  flex-shrink: 0;
-  font-size: 24px;
-  line-height: 29px;
-  font-weight: 500;
-}
-
-/* =========================================================
-   7. ПОДВАЛ САЙТА — FOOTER
-   ========================================================= */
+/* ==========================================================
+   08. ПОДВАЛ САЙТА / FOOTER
+   ========================================================== */
 .footer {
   width: 100%;
-  margin: 33px auto 0;
-  padding-top: 32px;
+  margin: auto 0;
+  padding-top: 13px;
   box-sizing: border-box;
   background-color: #f7f6f6;
 }
 
-/* Основной контейнер footer */
+/* Основная сетка Footer */
+.footer__inner {
+  display: grid;
+  grid-template-columns: 198px minmax(0, 1fr);
+  -moz-column-gap: 212px;
+       column-gap: 212px;
+  align-items: flex-start;
+}
+
+/* Правая часть подвала */
 .footer__content {
   width: 100%;
-  max-width: 860px;
+  min-width: 0;
   margin: 0;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
 
-/* =========================================================
-   8. FOOTER — ЛОГОТИП
-   ========================================================= */
+/* Логотип Footer */
 .footer__column--logo {
   width: 198px;
   height: 130px;
-  margin-right: 212px;
-  padding-top: 9px;
+  margin-right: 0;
+  padding-top: 0;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   box-sizing: border-box;
 }
 
-/* Изображение логотипа */
 .footer__logo {
   width: 198px;
   height: 44px;
   display: block;
 }
 
-/* =========================================================
-   9. FOOTER — ОБЩИЕ ЗАГОЛОВКИ
-   ========================================================= */
+/* Общие заголовки */
 .footer__title {
   margin: 0 0 16px;
   font-weight: 500;
@@ -1193,30 +1254,28 @@ a {
   color: #000000;
 }
 
-/* =========================================================
-   10. FOOTER — МЕНЮ
-   ========================================================= */
+/* ==========================================================
+   08.1. МЕНЮ FOOTER
+   ========================================================== */
 .footer__column--menu {
+  flex: 0 0 104px;
   width: 104px;
   height: 155px;
-  padding-top: 8px;
-  padding-left: 10px;
+  padding-top: 0;
+  padding-left: 0;
   box-sizing: border-box;
 }
 
-/* Список */
 .footer__list {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-/* Элемент списка */
 .footer__item {
   margin-bottom: 4px;
 }
 
-/* Ссылки footer */
 .footer__link {
   display: inline-block;
   font-size: 14px;
@@ -1231,19 +1290,21 @@ a {
   transform: scale(1.1);
 }
 
-/* =========================================================
-   11. FOOTER — КОНТАКТЫ
-   ========================================================= */
+/* ==========================================================
+   08.2. КОНТАКТЫ FOOTER
+   ========================================================== */
 .footer__column--contacts {
+  flex: 0 0 137px;
   width: 137px;
   height: 158px;
-  padding-top: 12px;
+  padding-top: 0;
   padding-right: 10px;
-  padding-left: 10px;
+  padding-left: 0;
   box-sizing: border-box;
+  position: relative;
+  left: 16px;
 }
 
-/* Телефон, email и другие контакты */
 .footer__contact {
   display: block;
   margin-bottom: 4px;
@@ -1260,7 +1321,7 @@ a {
   transform: scale(1.05);
 }
 
-/* Ссылки социальных сетей */
+/* Социальные сети */
 .footer__socials {
   display: flex;
   align-items: center;
@@ -1268,7 +1329,8 @@ a {
   margin-top: 8px;
 }
 
-.footer__social-link {
+.footer__social-link,
+.footer__social-linc {
   width: 24px;
   height: 24px;
   display: inline-flex;
@@ -1292,26 +1354,25 @@ a {
   opacity: 0.5;
 }
 
-/* Дополнительный информационный блок */
 .footer__info {
   width: 182px;
   height: 87px;
 }
 
-/* =========================================================
-   12. FOOTER — ФОРМА ПОДПИСКИ
-   ========================================================= */
+/* ==========================================================
+   08.3. ФОРМА ПОДПИСКИ
+   ========================================================== */
 .footer__column--form {
+  flex: 0 0 380px;
   width: 380px;
   height: 175px;
   padding-top: 17px;
-  padding-right: 37px;
+  padding-right: 9px;
   padding-bottom: 47px;
   padding-left: 111px;
   box-sizing: border-box;
 }
 
-/* Контейнер формы */
 .footer__form {
   width: 260px;
   height: 111px;
@@ -1320,7 +1381,7 @@ a {
   box-sizing: border-box;
 }
 
-/* Текст над полем email */
+/* Текст над формой */
 .footer__form-text {
   width: 251px;
   margin: 0 0 4px;
@@ -1330,32 +1391,29 @@ a {
   color: #000000;
 }
 
-/* Поле ввода email */
+/* Поле email */
 .footer__email {
   width: 260px;
   height: 40px;
   padding-right: 20px;
   padding-left: 20px;
-  border: 1px solid #C4C4C4;
+  border: 1px solid #c4c4c4;
   border-radius: 16px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   box-sizing: border-box;
   font-size: 12px;
   line-height: 100%;
 }
 
-/* Подсказка внутри поля email */
 .footer__email::-moz-placeholder {
-  color: #C4C4C4;
+  color: #c4c4c4;
 }
 
 .footer__email::placeholder {
-  color: #C4C4C4;
+  color: #c4c4c4;
 }
 
-/* =========================================================
-   13. FOOTER — КНОПКА
-   ========================================================= */
+/* Кнопка подписки */
 .footer__button {
   width: 260px;
   height: 40px;
@@ -1383,11 +1441,9 @@ a {
   transform: scale(0.97);
 }
 
-.footer__inner {
-  display: flex;
-  align-items: flex-start;
-}
-
+/* ==========================================================
+   09. АДАПТИВНЫЕ СТИЛИ
+   ========================================================== */
 @media (max-width: 1024px) {
   .center {
     padding-left: calc(50% - 393px);
